@@ -50,14 +50,42 @@ function validateForm() {
     // Pista: Usa getElementById('apellidoPaterno')
     
     // Tu código aquí...
+    const ApellidoPaterno = document.getElementById('ApellidoPaterno');
+    const valorApellidoPaterno = ApellidoPaterno.value.trim();
     
-    
+    if (valorApellidoPaterno === '') {
+        // Campo vacío - marcar como inválido
+        ApellidoPaterno.classList.add('no-valid');
+        isValid = false;
+    } else if (valorApellidoPaterno.length < 2) {
+        // Muy corto - marcar como inválido
+        ApellidoPaterno.classList.add('no-valid');
+        isValid = false;
+    } else {
+        // Campo válido - remover marca de error si existe
+        ApellidoPaterno.classList.remove('no-valid');
+    }
     // ==========================================
     // TODO: Validar Apellido Materno
     // ==========================================
     // Requisitos: No vacío, mínimo 2 caracteres
     
     // Tu código aquí...
+    const ApellidoMaterno = document.getElementById('ApellidoMaterno');
+    const valorApellidoMaterno = ApellidoMaterno.value.trim();
+    
+    if (valorApellidoMaterno === '') {
+        // Campo vacío - marcar como inválido
+        ApellidoMaterno.classList.add('no-valid');
+        isValid = false;
+    } else if (valorApellidoMaterno.length < 2) {
+        // Muy corto - marcar como inválido
+        ApellidoMaterno.classList.add('no-valid');
+        isValid = false;
+    } else {
+        // Campo válido - remover marca de error si existe
+        ApellidoMaterno.classList.remove('no-valid');
+    }
     
     
     // ==========================================
@@ -68,7 +96,20 @@ function validateForm() {
     
     // Tu código aquí...
     
-    
+    const cedula = document.getElementById('cedula');
+    const valorcedula = cedula.value.trim();
+    const regex = /^\d{10}$/;
+
+    if (valorcedula === '') {
+        isValid = false;
+        cedula.classList.add('no-valid');
+    } else if (!regex.test(valorcedula)){
+        isValid = false;
+        cedula.classList.add('no-valid');
+    } else {
+        cedula.classList.remove('no-valid');
+    }
+
     // ==========================================
     // TODO: Validar Motivo
     // ==========================================
