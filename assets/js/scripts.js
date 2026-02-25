@@ -95,7 +95,7 @@ function validateForm() {
     // Pista: Usa /^\d{10}$/.test(valor) para validar
     
     // Tu código aquí...
-    
+
     const cedula = document.getElementById('cedula');
     const valorcedula = cedula.value.trim();
     const regex = /^\d{10}$/;
@@ -116,8 +116,23 @@ function validateForm() {
     // Requisitos: No vacío, mínimo 10 caracteres
     
     // Tu código aquí...
+    const Motivo = document.getElementById('Motivo');
+    const valorMotivo = Motivo.value.trim();
     
-    
+    if (valorMotivo === '') {
+        // Campo vacío - marcar como inválido
+        Motivo.classList.add('no-valid');
+        isValid = false;
+    } else if (valorMotivo.length < 10) {
+        // Muy corto - marcar como inválido
+        Motivo.classList.add('no-valid');
+        isValid = false;
+    } else {
+        // Campo válido - remover marca de error si existe
+        Motivo.classList.remove('no-valid');
+    }
+
+
     // ==========================================
     // TODO: Validar Tipo de Cuenta
     // ==========================================
